@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/milenamatos/clean_architecture/issues"
   },
-  "homepage": "https://github.com/milenamatos/clean_architecture#readme"
+  "homepage": "https://github.com/milenamatos/clean_architecture#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.0.0"
+  }
 }
