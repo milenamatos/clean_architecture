@@ -18,4 +18,10 @@ describe('User class entity', () => {
     const error = User.create({ name: 'O'.repeat(257), email: 'any@mail.com' })
     expect(error).toEqual(left(new InvalidNameError()))
   })
+
+  test('should create user with valid data', () => {
+    const user: User = User.create({ name: 'valid name', email: 'any@mail.com' }).value as User
+    expect(user.name.value).toBe('valid name')
+    expect(user.email.value).toBe('any@mail.com')
+  })
 })
