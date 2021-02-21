@@ -23,4 +23,19 @@ describe('Mongodb User Reposity', () => {
     await userReposity.add(user)
     expect(await userReposity.exists(user)).toBeTruthy()
   })
+
+  test('final add users should return all added users', async () => {
+    const userReposity = new MongodbUserRepository()
+    await userReposity.add({
+      name: 'first name',
+      email: 'first@email.com'
+    })
+    await userReposity.add({
+      name: 'second name',
+      email: 'second@email.com'
+    })
+    const users = await userReposity.findAllUsers()
+    expect(users[0].name).toEqual('first name')
+    expect(users[1].name).toEqual('second name')
+  })
 })
